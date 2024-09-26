@@ -1,11 +1,14 @@
 {
   "name": "cab-booking-app",
   "version": "1.0.0",
-  "description": "A simple cab booking application",
+  "description": "A simple cab booking app",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "echo 'Build script not needed'"
   },
+  "author": "Your Name",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
   }
