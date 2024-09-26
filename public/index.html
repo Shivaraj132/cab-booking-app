@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab Booking</title>
+</head>
+<body>
+    <h1>Book a Cab</h1>
+    <form id="bookingForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+        <label for="pickup">Pickup Location:</label>
+        <input type="text" id="pickup" required><br>
+        <label for="dropoff">Dropoff Location:</label>
+        <input type="text" id="dropoff" required><br>
+        <label for="time">Pickup Time:</label>
+        <input type="time" id="time" required><br>
+        <button type="submit">Book Cab</button>
+    </form>
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const pickup = document.getElementById('pickup').value;
+            const dropoff = document.getElementById('dropoff').value;
+            const time = document.getElementById('time').value;
+            
+            fetch('/api/booking', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, pickup, dropoff, time })
+            }).then(response => response.json())
+              .then(data => alert('Cab booked successfully!'));
+        });
+    </script>
+</body>
+</html>
+
